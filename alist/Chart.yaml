@@ -1,0 +1,22 @@
+apiVersion: v2
+name: alist
+version: 0.1.0
+kubeVersion: ^1.8.0-0
+description: A file list program that supports multiple storage, powered by Gin and Solidjs.
+type: application
+home: https://alist.nn.ci/
+sources:
+  - https://github.com/alist-org/alist
+maintainers:
+  - email: phenix3443@gmail.com
+    name: phenix3443
+    url: https://blog.panghuli.cn/
+icon: https://camo.githubusercontent.com/eb3034ce26fcd9bc3f07244d7939ca8105a17fe81bb82102a629e56526936cdf/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f616c6973742d6f72672f6c6f676f406d61696e2f6c6f676f2e737667
+appVersion: "v3.17.0"
+annotations:
+  artifacthub.io/license: AGPL-3.0-only
+  artifacthub.io/links: |
+    - name: Chart Source
+      url: https://github.com/grafana/helm-charts
+    - name: Upstream Project
+      url: https://github.com/grafana/grafana
