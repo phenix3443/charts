@@ -15,8 +15,9 @@ icon: https://camo.githubusercontent.com/eb3034ce26fcd9bc3f07244d7939ca8105a17fe
 appVersion: "v3.17.0"
 annotations:
   artifacthub.io/license: AGPL-3.0-only
+  artifacthub.io/category: storage
   artifacthub.io/links: |
-    - name: Chart Source
-      url: https://github.com/grafana/helm-charts
+    - name: support
+      url: https://github.com/phenix3443/charts
     - name: Upstream Project
-      url: https://github.com/grafana/grafana
+      url: https://github.com/alist-org/alist

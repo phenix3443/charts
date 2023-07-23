@@ -5,7 +5,7 @@
 ## Get Repo Info
 
 ```console
-helm repo add phenix3443 https://github.com/phenix3443/charts
+helm repo add panghuli https://charts.panghuli.cn
 helm repo update
 ```
 
@@ -14,7 +14,7 @@ helm repo update
 To install the chart with the release name `my-release`:
 
 ```console
-helm install my-release phenix3443/alist
+helm install my-release panghuli/alist
 ```
 
 ## Uninstalling the Chart
