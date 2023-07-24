@@ -1,6 +1,6 @@
 apiVersion: v2
 name: alist
-version: 0.1.0
+version: 0.1.1
 kubeVersion: ^1.8.0-0
 description: A file list program that supports multiple storage, powered by Gin and Solidjs.
 type: application
@@ -16,11 +16,8 @@ appVersion: "v3.17.0"
 annotations:
   artifacthub.io/category: storage
   artifacthub.io/changes: |
-    - kind: added
-      description: init
-      links:
-        - name: repo
-          url: https://github.com/phenix3443/charts
+    - kind: fixed
+      description: alist container port use 5244
   artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/links: |
     - name: support

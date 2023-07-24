@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "alist.fullname" . }}
-  namespace: {{ include "alist.namespace" . }}
+  name: {{ include "cloudreve.fullname" . }}
+  namespace: {{ include "cloudreve.namespace" . }}
   labels:
-    {{- include "alist.labels" . | nindent 4 }}
+    {{- include "cloudreve.labels" . | nindent 4 }}
     {{- with .Values.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -18,7 +18,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "alist.selectorLabels" . | nindent 6 }}
+      {{- include "cloudreve.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -26,13 +26,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "alist.selectorLabels" . | nindent 8 }}
+        {{- include "cloudreve.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "alist.serviceAccountName" . }}
+      serviceAccountName: {{ include "cloudreve.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -46,8 +46,11 @@ spec:
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           volumeMounts:
+            - name: config
+              mountPath: "/cloudreve/conf.ini"
+              subPath: conf.ini
             - name: storage
-              mountPath: "/opt/alist/data"
+              mountPath: "/data"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -63,10 +66,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
+        - name: config
+          configMap:
+            name: {{ include "cloudreve.fullname" . }}
         {{- if and .Values.persistence.enabled (eq .Values.persistence.type "pvc") }}
         - name: storage
           persistentVolumeClaim:
-            claimName: {{ tpl (.Values.persistence.existingClaim | default (include "alist.fullname" .)) . }}
+            claimName: {{ tpl (.Values.persistence.existingClaim | default (include "cloudreve.fullname" .)) . }}
         {{- else}}
         - name: storage
           {{- if .Values.persistence.inMemory.enabled }}
