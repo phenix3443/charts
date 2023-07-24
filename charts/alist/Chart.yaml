@@ -11,11 +11,17 @@ maintainers:
   - email: phenix3443@gmail.com
     name: phenix3443
     url: https://blog.panghuli.cn/
-icon: https://camo.githubusercontent.com/eb3034ce26fcd9bc3f07244d7939ca8105a17fe81bb82102a629e56526936cdf/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f616c6973742d6f72672f6c6f676f406d61696e2f6c6f676f2e737667
+icon: https://tinyurl.com/23gfch92
 appVersion: "v3.17.0"
 annotations:
-  artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/category: storage
+  artifacthub.io/changes: |
+    - kind: added
+      description: init
+      links:
+        - name: repo
+          url: https://github.com/phenix3443/charts
+  artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/links: |
     - name: support
       url: https://github.com/phenix3443/charts
