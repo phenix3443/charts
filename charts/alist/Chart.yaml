@@ -16,11 +16,8 @@ appVersion: "v3.17.0"
 annotations:
   artifacthub.io/category: storage
   artifacthub.io/changes: |
-    - kind: added
-      description: init
-      links:
-        - name: repo
-          url: https://github.com/phenix3443/charts
+    - kind: fixed
+      description: alist container port use 5244
   artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/links: |
     - name: support
