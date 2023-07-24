@@ -11,8 +11,8 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 data:
-  cloudreve.ini: |
-  {{- range $elem, $elemVal := index .Values "cloudreve.ini" }}
+  conf.ini: |
+  {{- range $elem, $elemVal := index .Values "conf.ini" }}
     {{- if not (kindIs "map" $elemVal) }}
     {{- if kindIs "invalid" $elemVal }}
     {{ $elem }} =
@@ -23,7 +23,7 @@ data:
     {{- end }}
     {{- end }}
   {{- end }}
-  {{- range $key, $value := index .Values "cloudreve.ini" }}
+  {{- range $key, $value := index .Values "conf.ini" }}
     {{- if kindIs "map" $value }}
     [{{ $key }}]
     {{- range $elem, $elemVal := $value }}

@@ -135,7 +135,7 @@ createConfigmap: true
 ## NOTE: values in map will be converted to ini format
 ## ref: https://docs.cloudreve.org/getting-started/config
 ##
-cloudreve.ini:
+conf.ini:
   System:
     # 运行模式
     Mode: master
