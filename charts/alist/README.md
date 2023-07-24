@@ -1,6 +1,6 @@
 # Alist Helm Chart
 
-- [Alist](https://alist.nn.ci/zh/)
+- Installs the storage manager system [Alist](https://alist.nn.ci/)。
 
 ## Get Repo Info
 
