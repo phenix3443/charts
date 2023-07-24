@@ -3,6 +3,37 @@ entries:
   alist:
   - annotations:
       artifacthub.io/category: storage
+      artifacthub.io/changes: |
+        - kind: fixed
+          description: alist container port use 5244
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/phenix3443/charts
+        - name: Upstream Project
+          url: https://github.com/alist-org/alist
+    apiVersion: v2
+    appVersion: v3.17.0
+    created: "2023-07-24T17:12:13.643995521Z"
+    description: A file list program that supports multiple storage, powered by Gin
+      and Solidjs.
+    digest: 479d5ab63801131a1fb9316492da2e289f8010fa85175a36050a93c3b165a2cb
+    home: https://alist.nn.ci/
+    icon: https://tinyurl.com/23gfch92
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: phenix3443@gmail.com
+      name: phenix3443
+      url: https://blog.panghuli.cn/
+    name: alist
+    sources:
+    - https://github.com/alist-org/alist
+    type: application
+    urls:
+    - https://github.com/phenix3443/charts/releases/download/alist-0.1.1/alist-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/category: storage
       artifacthub.io/license: AGPL-3.0-only
       artifacthub.io/links: |
         - name: support
@@ -29,4 +60,39 @@ entries:
     urls:
     - https://github.com/phenix3443/charts/releases/download/alist-0.1.0/alist-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-24T03:08:33.244942725Z"
+  cloudreve:
+  - annotations:
+      artifacthub.io/category: storage
+      artifacthub.io/changes: |
+        - kind: added
+          description: init
+          links:
+            - name: repo
+              url: https://github.com/phenix3443/charts
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/phenix3443/charts
+        - name: Upstream Project
+          url: https://github.com/cloudreve/Cloudreve
+    apiVersion: v2
+    appVersion: 3.8.0
+    created: "2023-07-24T17:12:13.794760638Z"
+    description: Self-hosted file management and sharing system, supports multiple
+      storage providers.
+    digest: 9ae76e73d18219a3ac3cf4d135f71e5fe82a6c8f3a1411504f511511ce0a9178
+    home: https://cloudreve.org/
+    icon: https://raw.githubusercontent.com/cloudreve/frontend/master/public/static/img/logo192.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: phenix3443@gmail.com
+      name: phenix3443
+      url: https://blog.panghuli.cn/
+    name: cloudreve
+    sources:
+    - https://github.com/cloudreve/Cloudreve
+    type: application
+    urls:
+    - https://github.com/phenix3443/charts/releases/download/cloudreve-0.1.0/cloudreve-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-07-24T17:12:13.795480286Z"
