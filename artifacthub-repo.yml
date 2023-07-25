@@ -9,7 +9,7 @@
 # when the hash of the last commit in the branch you set up changes. This does
 # NOT apply to ownership claim operations, which are processed immediately.
 #
-repositoryID: f9c4ffc0-b633-44ad-8206-15d9a52e1ddd
-owners: # (optional, used to claim repository ownership)
+repositoryID: "669548994"
+owners:
   - name: phenix3443
     email: phenix3443@gmail.com

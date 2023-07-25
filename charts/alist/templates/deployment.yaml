@@ -35,6 +35,23 @@ spec:
       serviceAccountName: {{ include "alist.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.createConfigFile.enabled }}
+      initContainers:
+        - name: init-config
+          image: "{{ .Values.createConfigFile.image.repository }}:{{ .Values.createConfigFile.image.tag }}"
+          imagePullPolicy: {{ .Values.createConfigFile.image.pullPolicy }}
+          command:
+            # - ["/bin/sh", "-c", "cp /config.json /data/config.json"]
+            - cp
+            - /config.json
+            - /data/config.json
+          volumeMounts:
+            - name: config
+              mountPath: "/config.json"
+              subPath: config.json
+            - name: storage
+              mountPath: "/data"
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -63,6 +80,11 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
+        {{- if .Values.createConfigFile.enabled }}
+        - name: config
+          configMap:
+            name: {{ include "alist.fullname" . }}
+        {{- end}}
         {{- if and .Values.persistence.enabled (eq .Values.persistence.type "pvc") }}
         - name: storage
           persistentVolumeClaim:
