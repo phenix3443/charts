@@ -8,7 +8,7 @@ image:
   repository: xhofe/alist
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v3.17.0"
+  tag: "v3.23.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -135,7 +135,7 @@ createConfigFile:
   enabled: true
   image:
     repository: docker.io/library/busybox
-    tag: "1.31.1"
+    tag: "latest"
     pullPolicy: IfNotPresent
 
 ## alist's primary configuration
