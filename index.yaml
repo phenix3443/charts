@@ -14,6 +14,37 @@ entries:
           url: https://github.com/alist-org/alist
     apiVersion: v2
     appVersion: v3.17.0
+    created: "2023-07-25T14:32:40.247649731Z"
+    description: A file list program that supports multiple storage, powered by Gin
+      and Solidjs.
+    digest: d4a907b930277459886d32fad11d1d12bf42d0ae07061d6d023c25598a64e817
+    home: https://alist.nn.ci/
+    icon: https://tinyurl.com/23gfch92
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: phenix3443@gmail.com
+      name: phenix3443
+      url: https://blog.panghuli.cn/
+    name: alist
+    sources:
+    - https://github.com/alist-org/alist
+    type: application
+    urls:
+    - https://github.com/phenix3443/charts/releases/download/alist-0.1.4/alist-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/category: storage
+      artifacthub.io/changes: |
+        - kind: security
+          description: fix Security alerts
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/phenix3443/charts
+        - name: Upstream Project
+          url: https://github.com/alist-org/alist
+    apiVersion: v2
+    appVersion: v3.17.0
     created: "2023-07-25T07:27:37.759899203Z"
     description: A file list program that supports multiple storage, powered by Gin
       and Solidjs.
@@ -122,6 +153,39 @@ entries:
     urls:
     - https://github.com/phenix3443/charts/releases/download/alist-0.1.0/alist-0.1.0.tgz
     version: 0.1.0
+  aria2:
+  - annotations:
+      artifacthub.io/category: download
+      artifacthub.io/changes: |
+        - kind: added
+          description: init
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/phenix3443/charts
+        - name: Upstream Project
+          url: https://hub.docker.com/r/p3terx/aria2-pro
+    apiVersion: v2
+    appVersion: 1.36.0
+    created: "2023-07-25T14:32:40.369814094Z"
+    description: aria2 is a lightweight multi-protocol & multi-source command-line
+      download utility. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink.
+      aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces.
+    digest: f32f0387f321446743d91f5f2565a8e2485a71de2930ca9599d1d432b418a10a
+    home: https://aria2.github.io/
+    icon: https://img.downkuai.com/logo/191116/201911161545122887.jpg
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: phenix3443@gmail.com
+      name: phenix3443
+      url: https://blog.panghuli.cn/
+    name: aria2
+    sources:
+    - https://github.com/aria2/aria2
+    type: application
+    urls:
+    - https://github.com/phenix3443/charts/releases/download/aria2-0.1.0/aria2-0.1.0.tgz
+    version: 0.1.0
   cloudreve:
   - annotations:
       artifacthub.io/category: storage
@@ -157,4 +221,4 @@ entries:
     urls:
     - https://github.com/phenix3443/charts/releases/download/cloudreve-0.1.0/cloudreve-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-25T07:27:37.759911803Z"
+generated: "2023-07-25T14:32:40.369860094Z"
