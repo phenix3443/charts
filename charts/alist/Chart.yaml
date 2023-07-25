@@ -1,6 +1,6 @@
 apiVersion: v2
 name: alist
-version: 0.1.2
+version: 0.1.3
 kubeVersion: ^1.8.0-0
 description: A file list program that supports multiple storage, powered by Gin and Solidjs.
 type: application
@@ -13,11 +13,12 @@ maintainers:
     url: https://blog.panghuli.cn/
 icon: https://tinyurl.com/23gfch92
 appVersion: "v3.17.0"
+# https://artifacthub.io/docs/topics/annotations/helm/
 annotations:
   artifacthub.io/category: storage
   artifacthub.io/changes: |
-    - kind: added
-      description: can start with config file
+    - kind: security
+      description: fix Security alerts
   artifacthub.io/license: AGPL-3.0-only
   artifacthub.io/links: |
     - name: support
