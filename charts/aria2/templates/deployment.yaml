@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "aria2.fullname" . }}
+  namespace: {{ include "aria2.namespace" . }}
+  labels:
+    {{- include "aria2.labels" . | nindent 4 }}
+    {{- with .Values.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.annotations }}
+  annotations:
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "aria2.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "aria2.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "aria2.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: RPC_SECRET
+              value: {{ .Values.config.rpc_secret }}
+            - name: RPC_PORT
+              value: {{ .Values.config.rpc_listen_port | quote }}
+            - name: LISTEN_PORT
+              value: {{ .Values.config.listen_port | quote }}
+          ports:
+            - name: {{ .Values.podPortName }}
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          volumeMounts:
+            - name: storage
+              mountPath: "/downloads"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+        - name: {{ .Values.ui.name }}
+          image: "{{ .Values.ui.repository }}:{{ .Values.ui.tag }}"
+          imagePullPolicy: {{ .Values.ui.pullPolicy }}
+          ports:
+            - name: webui
+              containerPort: {{ .Values.ui_service.targetPort }}
+              protocol: TCP
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        {{- if and .Values.persistence.enabled (eq .Values.persistence.type "pvc") }}
+        - name: storage
+          persistentVolumeClaim:
+            claimName: {{ tpl (.Values.persistence.existingClaim | default (include "aria2.fullname" .)) . }}
+        {{- else }}
+        - name: storage
+          {{- if .Values.persistence.inMemory.enabled }}
+          emptyDir:
+            medium: Memory
+            {{- with .Values.persistence.inMemory.sizeLimit }}
+            sizeLimit: {{ . }}
+            {{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        {{- end }}

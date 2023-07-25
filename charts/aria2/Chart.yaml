@@ -1,0 +1,27 @@
+apiVersion: v2
+name: aria2
+version: 0.1.0
+kubeVersion: ^1.8.0-0
+description: aria2 is a lightweight multi-protocol & multi-source command-line download utility. It supports HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink. aria2 can be manipulated via built-in JSON-RPC and XML-RPC interfaces.
+type: application
+home: https://aria2.github.io/
+sources:
+  - https://github.com/aria2/aria2
+maintainers:
+  - email: phenix3443@gmail.com
+    name: phenix3443
+    url: https://blog.panghuli.cn/
+icon: https://img.downkuai.com/logo/191116/201911161545122887.jpg
+appVersion: "1.36.0"
+# https://artifacthub.io/docs/topics/annotations/helm/
+annotations:
+  artifacthub.io/category: download
+  artifacthub.io/changes: |
+    - kind: added
+      description: init
+  artifacthub.io/license: AGPL-3.0-only
+  artifacthub.io/links: |
+    - name: support
+      url: https://github.com/phenix3443/charts
+    - name: Upstream Project
+      url: https://hub.docker.com/r/p3terx/aria2-pro
