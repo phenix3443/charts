@@ -8,7 +8,7 @@ image:
   repository: xhofe/alist
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v3.23.0"
+  tag: "v3.24.0"
 
 imagePullSecrets: []
 nameOverride: ""
